@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --primary-color: #755139FF;
+    --secondary-color: #D4B996FF; */
+       --primary-color:#A1D6E2;
+    --secondary-color:  #1995AD;
+    
+    
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+html {
+    font-size: 75.5%;
+}
+
+.header {
+    width: 100%;
+    height: 500px;
+    color: var(--secondary-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./bg1.jpg');
+    background-size: cover;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    clip-path: circle(60% at left 300px);
+    z-index: -1;
+}
+
+.row2 {
+    position: absolute;
+    top: 10px;
+    right: 150px;
+    text-align: center;
+}
+
+.row2 h2 {
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.row2 img {
+    margin-top: 30px;
+    width: 250px;
+}
+
+.row h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-left: 35px;
+    font-family: 'Bodoni Moda', serif;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.icon {
+    font-size: 20px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.search input {
+    outline: 0;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    width: 350px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.search input:focus {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.search button {
+    outline: none;
+    border: none;
+    height: 40px;
+    padding: 0 15px;
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search button:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+.container {
+    width: 75%;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 1rem 1rem 0 0;
+    object-fit: cover;
+}
+
+.card .bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.card .bottom .title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.card .bottom .amount {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+}
+
+.fing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.overlay {
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Ensure the overlay is above other content */
+}
+
+.overlayInner {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    max-height: 90vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.overlayInner .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #888;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.overlayInner .innerbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.overlayInner .innerbox img {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.overlayInner .info {
+    flex: 1;
+}
+
+.overlayInner h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.overlayInner h3 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.overlayInner h4 {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.overlayInner h4 span {
+    color: #444;
+    margin-left: 10px;
+}
+
+.overlayInner .description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #555;
+}
+a{
+    text-decoration: none;
+}
+.moreButton{
+    border: 1px solid #151515;
+    background-color:var(--secondary-color);
+    color:var(--primary-color); /* Default text color */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Animation for button color change */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text and icon within the button */
+    margin-bottom: 20px;
+   
+}
+.moreButton:hover{
+    background-color:#857e7e; /* Light grey background on hover */
+    color:white; /* Text color on hover */
+    box-shadow: 3px 3px 3px black;
+}
